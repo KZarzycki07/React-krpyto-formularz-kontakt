@@ -1,0 +1,245 @@
+nav {
+    display: flex;
+    justify-content: space-around;
+    font-size: 20px;
+}
+
+aside {
+  display: flex;
+  flex-direction: column;
+
+   height: 100%;
+}
+
+.przycisk-bok {
+    color: rgb(1, 1, 1);
+    text-decoration: none;
+    font-size: 20px;
+    padding: 3px;
+    transition: 0.3s;
+background-color: #10b981;
+   border: none;
+}
+
+
+
+.przycisk-bok:hover{
+
+    scale: 103%;
+}
+
+#calastrona {
+    display: flex;
+   margin-top: 50px;
+}
+
+#layout {
+    display: flex;
+    justify-content: center;
+    min-height: 100vh;
+    width: 100%;
+    align-items: center;
+
+}
+
+.inputy {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+  margin-top: 20px;
+  padding: 7px;
+  
+}
+body {
+    overflow: auto;
+}
+
+#background {
+    background-color: rgb(179, 175, 175);
+    padding: 50px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 15px;
+    box-shadow: 0.5px 0.5px 1px;
+}
+
+
+#Divsukces {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 35%;
+    height: 300px;
+    background-color: gray;
+}
+
+
+
+.uklad {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 15px;
+  list-style: none;
+
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+.grid {
+  display: flex;
+  flex-direction: column; 
+  justify-content: space-between;
+  align-items: center;
+  border: 1px solid black;
+  border-radius: 12px;
+  padding: 15px;
+  transition: 0.2s;
+}
+
+.grid:hover {
+  transform: scale(1.05);
+  background-color: rgb(180, 171, 171);
+}
+
+#layoutform {
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
+overflow: hidden;
+}
+
+#boxform {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    background-color: rgb(214, 210, 210);
+   padding: 30px;
+   border-radius: 20px;
+   box-shadow: 1px 0.9px 8px;
+
+}
+input {
+    padding: 10px;
+    border-radius: 6px;
+
+}
+
+#kontakt {
+    width: 15%;
+    height: 70vh;
+    background-color: rgb(188, 188, 188);
+    display: flex;
+flex-direction: column;
+justify-content: space-between;
+
+}
+
+.rodzaj {
+    margin-top: 60px;
+    font-size: 25px;
+    transition: 0.2s;
+  
+}
+.rodzaj:hover {
+    background-color: rgb(212, 211, 211);
+    scale: 108%;
+    border-radius: 10px;
+    padding: 5px;
+ border: 0.5px dotted rgb(113, 111, 111);
+}
+
+#uslugi {
+    flex: 1;
+    display: flex;
+    justify-content: space-around;
+    gap: 10px;
+}
+
+#uslugi > section {
+    border: 1px solid black;
+    width: 90%;
+    text-align: center;
+    font-size: 27px;
+    transition: 0.3s;
+    border-radius: 5px;
+ 
+}
+
+#html  {
+    margin-left: 10px;
+}
+
+#uslugi > section > p{
+    font-size: 20px;
+}
+
+#uslugi > section:hover {
+    transform: translateY(-15px);
+    border: solid 2px rgb(2, 124, 253);
+
+
+}
+
+
+.lds-facebook {
+  color: #1c4c5b;
+  display: inline-block;
+  position: relative;
+  width: 80px;
+  height: 80px;
+}
+.lds-facebook div {
+  box-sizing: border-box;
+  display: inline-block;
+  position: absolute;
+  left: 8px;
+  width: 16px;
+  background: currentColor;
+  animation: lds-facebook 1.2s cubic-bezier(0, 0.5, 0.5, 1) infinite;
+}
+.lds-facebook div:nth-child(1) {
+  left: 8px;
+  animation-delay: -0.24s;
+}
+.lds-facebook div:nth-child(2) {
+  left: 32px;
+  animation-delay: -0.12s;
+}
+.lds-facebook div:nth-child(3) {
+  left: 56px;
+  animation-delay: 0s;
+}
+@keyframes lds-facebook {
+  0% {
+    top: 8px;
+    height: 64px;
+  }
+  50%, 100% {
+    top: 24px;
+    height: 32px;
+  }
+}
+
+aside {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  height: 100%;
+}
+
+aside > #wartosc {
+  font-weight: 777;
+  padding: 5px;
+  box-shadow: 1px 0.5px 10.5px 1px;
+ display: flex;
+ justify-content: center;
+}
