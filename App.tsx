@@ -34,10 +34,10 @@ price_change_percentage_24h: number
 function Home() {
 
     type LoadingOf = "Ładowanie" | "Błąd" | "Sukces"
-const [status,setstatus] = useState<LoadingOf>("Ładowanie")
-const [tablica, settablica] = useState<Product[]>([])
-const [filtr,setfiltr] = useState("")
-const [waluta,setwaluta] = useState("pln")
+const [status, setStatus] = useState<LoadingOf>("Ładowanie")
+const [products, setProducts] = useState<Product[]>([])
+const [filter, setFilter] = useState<string>("")
+const [currency, setCurrency] = useState<string>("pln")
 
 useEffect(() => {
 
@@ -45,19 +45,19 @@ let controller = new AbortController()
 let active = true
  async function pobieranie() {
    try {
-    const data = await fetch(`https://api.coingecko.com/api/v3/coins/markets?vs_currency=${waluta}&order=market_cap_desc&per_page=100&page=1`, {signal:controller.signal}) 
+    const data = await fetch(`https://api.coingecko.com/api/v3/coins/markets?vs_currency=${currency}&order=market_cap_desc&per_page=100&page=1`, {signal:controller.signal}) 
   
   const rozpakuj = await data.json()
 
 
 if(active) {
-  settablica(rozpakuj)
-  setstatus("Sukces")
+  setProducts(rozpakuj)
+  setStatus("Sukces")
 }
 
 }catch(error) {
 if((error as Error).name !== 'AbortError') {
-  setstatus("Błąd")
+  setStatus("Błąd")
   alert("Nastąpił błąd pobierania danych")
 }
  
@@ -84,23 +84,23 @@ return () => {
 }
 
 
-},[waluta])
+},[currency])
 
-  const filteer = tablica.filter((produkt) => 
-  produkt.name.toLowerCase().includes(filtr.toLowerCase())
+  const filteer = products.filter((produkt) => 
+  produkt.name.toLowerCase().includes(filter.toLowerCase())
 )
 
 
 return (
   <div id="aaa">
 <input type="text" 
-value={filtr}
-onChange={(e) => setfiltr(e.target.value)}
+value={filter}
+onChange={(e) => setFilter(e.target.value)}
 placeholder="Wyszukaj walute"
 />
 
 
-<select value={waluta} onChange={(e) => setwaluta(e.target.value)}>
+<select value={currency} onChange={(e) => setCurrency(e.target.value)}>
 <option value="usd">USD</option>
 <option value="pln">PLN</option>
 <option value="eur">EUR</option>
