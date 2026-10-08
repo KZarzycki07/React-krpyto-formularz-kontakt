@@ -2,10 +2,10 @@ import React, { useState,} from "react"
 
 
 function Formularz() {
-const [werdykt,setwerdykt] = useState('WybierzWer')
-const [spec,setspec] = useState<string>('Wybierz')
-const [sukces,setsukces] = useState<boolean | null>(null)
-const [dane,setdane] = useState ({
+const [verdict, setVerdict] = useState<string>('SelectVer')
+const [spec, setSpec] = useState<string>('Wybierz')
+const [success, setSuccess] = useState<boolean | null>(null)
+const [data, setdata] = useState ({
 werdykt: '',
 imie: '',
 nazwisko: '',
@@ -21,8 +21,8 @@ const [lista,setlista] = useState<string[]>([])
 const [poprawa,setpoprawa] = useState("")
 
 const DanaData = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setdane({
-        ...dane,
+    setdata({
+        ...data,
         data_rozmowy: event.target.value
     })
 }
@@ -30,22 +30,22 @@ const DanaData = (event: React.ChangeEvent<HTMLInputElement>) => {
 
 
 const DaneImie = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setdane({
-        ...dane,
+    setdata({
+        ...data,
         imie: event.target.value
     })
 }
 
 const DaneNazwisko = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setdane({
-        ...dane,
+    setdata({
+        ...data,
         nazwisko: event.target.value
     })
 }
 
 const DanyMail = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setdane({
-        ...dane,
+    setdata({
+        ...data,
         mail: event.target.value
     })
 
@@ -53,12 +53,12 @@ const DanyMail = (event: React.ChangeEvent<HTMLInputElement>) => {
 }
 
 const NazwaFirmy = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setdane({
-        ...dane,
+    setdata({
+        ...data,
         firma: event.target.value
     })
 }
-
+ 
 
 const blockEnter = (event: React.KeyboardEvent<HTMLElement>) => {
     if(event.key === 'Enter') {
@@ -71,10 +71,10 @@ const blockEnter = (event: React.KeyboardEvent<HTMLElement>) => {
 
 const Poprawki = (e: React.KeyboardEvent<HTMLElement>) => {
     if(e.key === 'Enter') {
-   const utnij = poprawa.trim()
-  if(utnij === '') return
-  if(lista.includes(utnij)) return
- setlista([...lista,utnij])
+   const cutSpace = poprawa.trim()
+  if(cutSpace === '') return
+  if(lista.includes(cutSpace)) return
+ setlista([...lista,cutSpace])
  setpoprawa('')
     }
 }
@@ -94,21 +94,21 @@ try {
       "Content-Type": "application/json",
       "Accept": "application/json"
     },
-  body: JSON.stringify(dane)
+  body: JSON.stringify(data)
   });
   
   if(odpowiedz.ok) {
-    setsukces(true)
+    setSuccess(true)
 
-    setdane({imie: '', nazwisko: '', mail: '',firma: '',poprawki: '',specjalizacja: '',werdykt:'',data_rozmowy:''})
+    setdata({imie: '', nazwisko: '', mail: '',firma: '',poprawki: '',specjalizacja: '',werdykt:'',data_rozmowy:''})
 
   } else {
-    setsukces(false)
+    setSuccess(false)
 
   } 
 } catch(error) {
     console.log("Nieoczekiwany bład")
-    setsukces(false)
+    setSuccess(false)
 } finally {
     setladowanie(false)
 }
@@ -127,7 +127,7 @@ return (
 
 <h3>Werdykt</h3>
         
- <select name="werdykt" value={werdykt} onChange={(e) => {setwerdykt(e.target.value); setdane({...dane,werdykt: e.target.value})}}>
+ <select name="werdykt" value={verdict} onChange={(e) => {setVerdict(e.target.value); setdata({...data,werdykt: e.target.value})}}>
  
   <option value="WybierzWer">--Wybierz Werdykt--</option>
  
@@ -138,21 +138,21 @@ return (
 
         </select>
     
-    <input type="date"  name="data" disabled={werdykt === 'Odrzuczenie'} value={dane.data_rozmowy} onChange={DanaData} />
+    <input type="date"  name="data" disabled={verdict === 'Odrzuczenie'} value={data.data_rozmowy} onChange={DanaData} />
        
     
        
-        <input type="text" name="imie" value={dane.imie} onChange={DaneImie} placeholder="Imię" required disabled={werdykt === 'Odrzuczenie'}/>
+        <input type="text" name="imie" value={data.imie} onChange={DaneImie} placeholder="Imię" required disabled={verdict === 'Odrzuczenie'}/>
         
-        <input type="text" name="nazwisko" value={dane.nazwisko} onChange={DaneNazwisko} placeholder="Nazwisko" required disabled={werdykt === 'Odrzuczenie'}/>
+        <input type="text" name="nazwisko" value={data.nazwisko} onChange={DaneNazwisko} placeholder="Nazwisko" required disabled={verdict === 'Odrzuczenie'}/>
         
-        <input type="text" name="Firma" value={dane.firma} onChange={NazwaFirmy} placeholder="Nazwa Firmy" required disabled={werdykt === 'Odrzuczenie'}/>
+        <input type="text" name="Firma" value={data.firma} onChange={NazwaFirmy} placeholder="Nazwa Firmy" required disabled={verdict === 'Odrzuczenie'}/>
 
-        <input type="email" name="Mail" value={dane.mail} onChange={DanyMail} placeholder="E-mail" required disabled={werdykt === 'Odrzuczenie'}/>
+        <input type="email" name="Mail" value={data.mail} onChange={DanyMail} placeholder="E-mail" required disabled={verdict === 'Odrzuczenie'}/>
 
 
 
-<select name="specjalizacja" value={spec} disabled={werdykt === 'Odrzuczenie'}  onChange={(e) => {setspec(e.target.value); setdane({...dane,specjalizacja : e.target.value}) }}>
+<select name="specjalizacja" value={spec} disabled={verdict=== 'Odrzuczenie'}  onChange={(e) => {setSpec(e.target.value); setdata({...data,specjalizacja : e.target.value}) }}>
 
     <option value="Wybierz">--Wybierz Specjalizację--</option>
     <option value="Frontend">Frontend</option>
@@ -170,7 +170,7 @@ return (
 
 
 
-<input type="text" name="poprawa" value={poprawa}  onKeyDown={Poprawki} placeholder="Co mogę poprawić ?"   onChange={(e) => { setpoprawa(e.target.value); setdane({...dane,poprawki: e.target.value})}}/>
+<input type="text" name="poprawa" value={poprawa}  onKeyDown={Poprawki} placeholder="Co mogę poprawić ?"   onChange={(e) => { setpoprawa(e.target.value); setdata({...data,poprawki: e.target.value})}}/>
 
 <ul>
 {lista.map((item,index) => (
@@ -179,11 +179,11 @@ return (
     
 </ul>
 
-     <button type="submit" disabled={ladowanie || sukces === true || spec !== 'Frontend'}>
+     <button type="submit" disabled={ladowanie || success === true || spec !== 'Frontend'}>
 {ladowanie ?
 (
     'wysyłanie...'
-) : sukces ?
+) : success ?
 (
     'Wysłano'
 ) :
@@ -194,7 +194,7 @@ return (
 </button>
 
 {
-    sukces === true && (
+    success === true && (
         <div>Sukces,serdecznie dziękuję za poświęcenie czasu</div> 
         
     )
@@ -202,7 +202,7 @@ return (
 }
 
 {
-    sukces === false && (
+    success === false && (
         <div> Coś poszło nie tak,spróbuj ponownie pozniej</div>
     )
 
