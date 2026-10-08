@@ -17,7 +17,7 @@ aside {
     font-size: 20px;
     padding: 3px;
     transition: 0.3s;
-background-color: #10b981;
+ background-color: #4f46e5;
    border: none;
 }
 
@@ -121,7 +121,7 @@ overflow: hidden;
     display: flex;
     flex-direction: column;
     gap: 20px;
-    background-color: rgb(214, 210, 210);
+  background-color: #f8fafc;
    padding: 30px;
    border-radius: 20px;
    box-shadow: 1px 0.9px 8px;
@@ -136,7 +136,7 @@ input {
 #kontakt {
     width: 15%;
     height: 70vh;
-    background-color: rgb(188, 188, 188);
+    background-color: #f8fafc;
     display: flex;
 flex-direction: column;
 justify-content: space-between;
@@ -242,4 +242,14 @@ aside > #wartosc {
   box-shadow: 1px 0.5px 10.5px 1px;
  display: flex;
  justify-content: center;
+}
+
+form {
+  width: 30%;
+
+}
+
+
+body {
+   background-color: white; 
 }
