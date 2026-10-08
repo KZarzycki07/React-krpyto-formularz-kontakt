@@ -1,24 +1,16 @@
 Link bezpośredni do projektu     https://projekt-router.surge.sh/
 
-Witam.
+Oto projekt obserwujący sytuację TOP100 Kryptowalut, zawiera on:
 
-Mam 19 lat i od ponad roku intensywnie rozwijam się w obszarze Front-End 
+- Automatyczne odświeżanie danych co 30 sekund.
+- Zapobieganie wyścigowi zapytań dzięki AbortController
+- Zapobieganie wyciekom pamięci poprzez prawidłowe czyszczenie interwałów
+- Wyszukiwanie w czasie rzeczywistym oraz przełączanie walut (PLN, USD, EUR)
 
-Mój Stack technologiczny:
+Formularz Rekrutacyjny
+ - Dynamiczna zmiana dostępności pól na podstawie wybranego werdyktu.
+ - Blokowanie domyślnego wysyłania formularza klawiszem Enter podczas dodawania uwag.
+ - Obsługa pełnego cyklu zapytania HTTP ("Ładowanie","Sukces","Błąd"),widoczne dla użytkownika
 
-
-Języki: HTML, CSS, JavaScript, TypeScript
-
-
-Frameworki: React, Vue.js
-
-Moje podejście do kodowania:
-- W moich projektach skupiam się przede wszystkim na czystej logice, przemyślanej strukturze oraz prawidłowym przepływie danych.
-- Każdy framework łączę z TypeScriptem, dbając o pełne zabezpieczenie projektu typowaniem 
- - Jestem osobą pragmatyczną, większą wagę przykładam do wydajności i architektury kodu niż do samej warstwy wizualnej czy doboru palety barw.
-
-Po obejrzeniu projektu będę bardzo wdzięczny za wypełnienie formularza i wypełnieniu pól z mankamentami które mogę wyeliminować bądź udoskonalić 
-
-Życzę miłego dnia !
-
-
+Nawigacja
+ Routing strony oparty na react-router
