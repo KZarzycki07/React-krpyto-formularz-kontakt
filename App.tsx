@@ -118,7 +118,6 @@ placeholder="Wyszukaj walute"
           <span>{waluta.name}</span>
           <span>{waluta.current_price}</span>
           <span
-            id="ssspan"
             style={{ color: waluta.price_change_percentage_24h >= 0 ? 'green' : 'red' }}
           >
             {waluta.price_change_percentage_24h?.toFixed(2)}%
