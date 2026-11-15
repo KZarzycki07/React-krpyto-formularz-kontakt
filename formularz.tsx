@@ -131,7 +131,7 @@ return (
  
   <option value="WybierzWer">--Wybierz Werdykt--</option>
  
-  <option value="Rozmowa">Rozmowa Kwalfikacyjne</option>
+  <option value="Rozmowa">Rozmowa Kwalfikacyjna</option>
 
   <option value="Odrzuczenie">Dalsza Nauka</option>
     
