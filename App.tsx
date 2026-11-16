@@ -60,7 +60,6 @@ if(active) {
 }catch(error) {
 if((error as Error).name !== 'AbortError') {
   setStatus("Błąd")
-  alert("Nastąpił błąd pobierania danych")
 }
  
 
