@@ -46,7 +46,9 @@ let active = true
  async function pobieranie() {
    try {
     const data = await fetch(`https://api.coingecko.com/api/v3/coins/markets?vs_currency=${currency}&order=market_cap_desc&per_page=100&page=1`, {signal:controller.signal}) 
-  
+
+    if(!data.ok) throw new Error
+    
   const rozpakuj = await data.json()
 
 
@@ -99,6 +101,13 @@ onChange={(e) => setFilter(e.target.value)}
 placeholder="Wyszukaj walute"
 />
 
+   {status === "Ładowanie" && (
+  <div>
+    <AppLoader/>
+  </div>
+)
+
+}
 
 <select value={currency} onChange={(e) => setCurrency(e.target.value)}>
 <option value="usd">USD</option>
